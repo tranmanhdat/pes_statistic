@@ -35,4 +35,4 @@ result = client['prounciation']['tasks'].find(
   filter=filter,
   sort=sort
 )
-json.dump(result, open('data/'+'tasks'+ start_date + '_' + end_date+'.json', 'w'))
+json.dump(result, open('data/'+'tasks'+ start_str + '_' + end_str+'.json', 'w'))
