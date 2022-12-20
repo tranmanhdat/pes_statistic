@@ -21,9 +21,7 @@ end_date = datetime.strptime(end_str, '%Y-%m-%dT%H:%M:%S')
 client = MongoClient(MONGO_URL)
 filter={
     'last_update': {
-        '$gte': start_date
-    }, 
-    'last_update': {
+        '$gte': start_date,
         '$lte': end_date
     }
 }

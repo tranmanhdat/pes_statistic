@@ -1,7 +1,9 @@
 import json
 import datetime
 import matplotlib.pyplot as plt
-with open("tasks.json", "r") as f:
+import sys
+log_file = sys.argv[1]
+with open(log_file, "r") as f:
     tasks = json.load(f)
     
     data = {}

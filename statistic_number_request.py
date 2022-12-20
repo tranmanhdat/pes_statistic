@@ -1,14 +1,16 @@
 import json
 import datetime
 import matplotlib.pyplot as plt
-with open("tasks.json", "r") as f:
+import sys
+log_file = sys.argv[1]
+with open(log_file, "r") as f:
     tasks = json.load(f)
     list_time = []
     for task in tasks:
         try:
-            time = datetime.datetime.strptime(task["last_update"]["$date"], "%Y-%m-%dT%H:%M:%S.%fZ")
+            time = datetime.datetime.strptime(task["last_update"], "%Y-%m-%d %H:%M:%S.%f")
         except:
-            time = datetime.datetime.strptime(task["last_update"]["$date"], "%Y-%m-%dT%H:%M:%SZ")
+            time = datetime.datetime.strptime(task["last_update"], "%Y-%m-%d %H:%M:%S")
         list_time.append(time)
     alpha_time = (list_time[-1] - list_time[0])// datetime.timedelta(minutes=1)
     # print(alpha_time)
